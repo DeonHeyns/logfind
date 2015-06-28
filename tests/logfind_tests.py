@@ -106,3 +106,17 @@ def test_returns_logfiles_when_passing_in_regex():
     assert_equal(2, len(log_files))
     assert_equal(1, len(matches))
 
+def test_returns_logfile_when_passing_in_text_using_and_logic():
+    # arrange
+    lf = logfind.Logfind()
+    patterns = lf.read_dot_logfind()
+    log_files = lf.get_log_files(patterns)
+    text = r'very long files'
+
+    # act
+    matches = lf.read_log_files(log_files, text)
+
+    # assert
+    assert_equal(2, len(patterns))
+    assert_equal(2, len(log_files))
+    assert_equal(1, len(matches))

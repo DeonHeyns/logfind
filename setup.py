@@ -1,3 +1,4 @@
+import os
 try:
     from setuptools import setup
 except ImportError:
@@ -23,3 +24,8 @@ config = {
 }
 
 setup(**config)
+
+# create the .logfind file
+logfind_file = os.path.join(os.environ['HOME'], '.logfind')
+with open(logfind_file, 'wb+') as f:
+    f.write('.*\.log$')

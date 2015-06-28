@@ -14,6 +14,6 @@ The results of this will be a list of all files that have one instance of the wo
 
 - [X] Ability to install logfind on my computer and run it like other projects.
 
-- [ ] You can specify regular expressions as things to find in files.
+- [X] You can specify regular expressions as things to find in files.
 
 The logfind challenge is [project 1 of Projects the Hard Way](http://projectsthehardway.com/2015/06/16/project-1-logfind-2/) by [Zed Shaw](http://zedshaw.com/) 

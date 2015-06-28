@@ -1,0 +1,16 @@
+/Users/deonheyns/Projects/logfind/venv/lib/python2.7/site-packages/logfind-0.1-py2.7.egg/EGG-INFO/dependency_links.txt
+/Users/deonheyns/Projects/logfind/venv/lib/python2.7/site-packages/logfind-0.1-py2.7.egg/EGG-INFO/entry_points.txt
+/Users/deonheyns/Projects/logfind/venv/lib/python2.7/site-packages/logfind-0.1-py2.7.egg/EGG-INFO/not-zip-safe
+/Users/deonheyns/Projects/logfind/venv/lib/python2.7/site-packages/logfind-0.1-py2.7.egg/EGG-INFO/PKG-INFO
+/Users/deonheyns/Projects/logfind/venv/lib/python2.7/site-packages/logfind-0.1-py2.7.egg/EGG-INFO/requires.txt
+/Users/deonheyns/Projects/logfind/venv/lib/python2.7/site-packages/logfind-0.1-py2.7.egg/EGG-INFO/SOURCES.txt
+/Users/deonheyns/Projects/logfind/venv/lib/python2.7/site-packages/logfind-0.1-py2.7.egg/EGG-INFO/top_level.txt
+/Users/deonheyns/Projects/logfind/venv/lib/python2.7/site-packages/logfind-0.1-py2.7.egg/logfind/__init__.py
+/Users/deonheyns/Projects/logfind/venv/lib/python2.7/site-packages/logfind-0.1-py2.7.egg/logfind/__init__.pyc
+/Users/deonheyns/Projects/logfind/venv/lib/python2.7/site-packages/logfind-0.1-py2.7.egg/logfind/__main__.py
+/Users/deonheyns/Projects/logfind/venv/lib/python2.7/site-packages/logfind-0.1-py2.7.egg/logfind/__main__.pyc
+/Users/deonheyns/Projects/logfind/venv/lib/python2.7/site-packages/logfind-0.1-py2.7.egg/logfind/logfind.py
+/Users/deonheyns/Projects/logfind/venv/lib/python2.7/site-packages/logfind-0.1-py2.7.egg/logfind/logfind.pyc
+/Users/deonheyns/Projects/logfind/venv/bin/logfind
+/Users/deonheyns/Projects/logfind/venv/bin/nosetests
+/Users/deonheyns/Projects/logfind/venv/bin/nosetests-2.7

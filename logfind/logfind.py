@@ -2,6 +2,7 @@ __author__ = 'deonheyns'
 import os
 import re
 
+
 class Logfind(object):
     def __init__(self):
         self.__dot_logfind = '.logfind'
@@ -83,18 +84,44 @@ class Logfind(object):
             return f.readlines()
 
     def __create_regex_pattern(self, text, treat_as_or=False):
+        text = text.split()
+        regexes = []
+        left_overs = []
+        for t in text:
+            if self.__is_regex(t):
+                regexes.append(t)
+            else:
+                left_overs.append(t)
+
+        text = left_overs
+        patterns = []
         if not treat_as_or:
             regex = r'(?=.*?\b{0}\b.*?)'
-            pattern = ''.join([regex.format(x) for x in text.split()])
+            patterns.extend([regex.format(x) for x in text])
+            patterns.extend(['({})'.format(x) for x in regexes])
+            pattern = ''.join(patterns)
             return pattern
 
         else:
             regex = r'(?=.*?\b{0}\b.*?)'
-            pattern = '|'.join([regex.format(x) for x in text.split()])
+            patterns.extend([regex.format(x) for x in text])
+            patterns.extend([x for x in regexes])
+            pattern = '|'.join(patterns)
             return pattern
+
+    @staticmethod
+    def __is_regex(pattern):
+        match = re.match(r'^[a-zA-Z0-9]*$', pattern)
+        if match:
+            return False
+
+        try:
+            re.compile(pattern)
+        except Exception:
+            return False
+        return True
 
     @staticmethod
     def __flatten(items):
         flatten = [item for sublist in items for item in sublist]
         return flatten
-

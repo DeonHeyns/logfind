@@ -1,11 +1,18 @@
 __author__ = 'deonheyns'
 import os
-import glob
 import re
+import argparse
+
 
 class Logfind(object):
     def __init__(self):
         self.__dot_logfind = '.logfind'
+
+    def find(self, text, treat_as_or=False):
+        patterns = self.read_dot_logfind()
+        log_files = self.get_log_files(patterns)
+        matches = lf.read_log_files(log_files, text, treat_as_or=treat_as_or)
+        return matches
 
     # method to read .logfind to obtain the log files that are important
     # presume .logfind will be in ~ also try logfind folder then executing folder
@@ -28,9 +35,9 @@ class Logfind(object):
             errors.append(ex)
 
         if len(important_files) == 0 and len(errors) > 0:
-            raise Exception(errors)
+            raise Exception('No .logfind file found in user, logfind or current directory.')
 
-        important_files = self.__flatten(important_files)
+        important_files = set(self.__flatten(important_files))
         important_files = [l.rstrip() for l in important_files]  # Chomp
         return important_files
 
@@ -43,7 +50,7 @@ class Logfind(object):
         combined = '(' + ')|('.join(logs_patterns) + ')'
         for f in os.listdir(executing_directory):
             if re.search(combined, f, re.I):
-                    results.append(f)
+                results.append(f)
 
         return results
 
@@ -92,3 +99,19 @@ class Logfind(object):
     def __flatten(items):
         flatten = [item for sublist in items for item in sublist]
         return flatten
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Logfind...')
+    parser.add_argument('-o', nargs='?',
+                        help='uses or logic to find text in log files. As in deon OR has OR blue OR eyes')
+    args, text = parser.parse_known_args()
+    text.append(args.o or '')
+    text = ' '.join(text)
+
+    if not text:
+        parser.error('No search text provided to logfind')
+
+    lf = Logfind()
+    files = lf.find(text, args.o is not None)
+    print('\r\n'.join(files))

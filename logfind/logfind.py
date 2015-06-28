@@ -31,16 +31,20 @@ class Logfind(object):
             raise Exception(errors)
 
         important_files = self.__flatten(important_files)
+        important_files = [l.rstrip() for l in important_files]  # Chomp
         return important_files
 
     # method to scan current directory for all files that match the .logfind criteria
-    def get_log_files(self, logs_patterns):
+    @staticmethod
+    def get_log_files(logs_patterns):
         results = []
         executing_directory = os.getcwd()
-        for x in logs_patterns:
-            results.append(glob.glob(os.path.join(executing_directory, x)))
 
-        results = self.__flatten(results)
+        combined = '(' + ')|('.join(logs_patterns) + ')'
+        for f in os.listdir(executing_directory):
+            if re.search(combined, f, re.I):
+                    results.append(f)
+
         return results
 
     # read the passed in logfiles and find the passed in value

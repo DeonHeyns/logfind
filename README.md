@@ -12,7 +12,7 @@ The results of this will be a list of all files that have one instance of the wo
 
 - [X] You can pass in one argument, -o (dash oh) and the default is then or logic instead. In the example above -o would change it to mean "deon OR has OR blue OR eyes".
 
-- [ ] Ability to install logfind on my computer and run it like other projects. 
+- [X] Ability to install logfind on my computer and run it like other projects.
 
 - [ ] You can specify regular expressions as things to find in files.
 

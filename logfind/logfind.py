@@ -63,6 +63,7 @@ class Logfind(object):
                     search = re.search(regex, line, re.M | re.I)
                     if search:
                         results.append(log_file)
+                        break
         return results
 
     def __read_dot_logfind_from_home_directory(self):

@@ -3,10 +3,10 @@ from nose.tools import *
 import logfind
 
 def setup():
-    print "SETUP!"
+    pass
 
 def teardown():
-    print "TEAR DOWN!"
+    pass
 
 def test_read_important_files_from_dotlogfind():
     # arrange

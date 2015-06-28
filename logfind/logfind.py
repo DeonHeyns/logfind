@@ -58,17 +58,17 @@ class Logfind(object):
         results = []
         regex = self.__create_regex_pattern(text, treat_as_or)
         for log_file in log_files:
-            with file(log_file, "r") as f:
-                contents = f.read()
-                search = re.search(regex, contents, re.M | re.I)
-                if search:
-                    results.append(log_file)
+            with open(log_file, 'r') as f:  # Buffered read
+                for line in f:
+                    search = re.search(regex, line, re.M | re.I)
+                    if search:
+                        results.append(log_file)
         return results
 
     def __read_dot_logfind_from_home_directory(self):
         home_directory = os.environ['HOME']
         directory = os.path.join(home_directory, self.__dot_logfind)
-        with file(directory, "r") as f:
+        with file(directory, 'r') as f:
             return f.readlines()
 
     def __read_dot_logfind_from_logfind_directory(self):
